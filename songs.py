@@ -15,3 +15,4 @@ for row in cursor.execute(SQL_SELECT_GENRES):
 
 db_connection.close()
 
+
