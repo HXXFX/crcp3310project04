@@ -50,6 +50,32 @@ elsif fuckersInput == "2"
 
 	db.execute("INSERT INTO genres(name) VALUES('#{newGenreName}')")
 
+elsif fuckersInput == "3"
+	puts "Albums in the datbase:"
+	db.execute("SELECT albums.name FROM albums;") do |row|
+	 	
+	 	puts row
+	end
+	puts 'Enter a new album name motherfucker:___'
+
+	newAlbumName = gets.chomp
+	puts "newAlbumName is " + newAlbumName
+
+	db.execute("INSERT INTO albums(name) VALUES('#{newAlbumName}')")
+
+elsif fuckersInput == "4"
+	puts "Artists in the datbase:"
+	db.execute("SELECT artists.name FROM artists;") do |row|
+	 	
+	 	puts row
+	end
+	puts 'Enter a new artist name motherfucker:___'
+
+	newArtistName = gets.chomp
+	puts "newArtistName is " + newArtistName
+
+	db.execute("INSERT INTO artists(name) VALUES('#{newArtistName}')")
+
 else
 	puts "go fuck yourself"
 end
