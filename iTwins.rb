@@ -1,4 +1,9 @@
-#big bad motherfucker
+#CRCP3310 Project3
+#Zongxian Huang 
+
+#**********************************************************************************
+#README: Just run it. 
+#**********************************************************************************
 
 require "sqlite3"
 
@@ -34,7 +39,7 @@ elsif fuckersInput == "2"
 	puts 'Enter a new genre name motherfucker:___'
 
 	newGenreName = gets.chomp
-	puts "newGenreName is " + newGenreName
+	#puts "newGenreName is " + newGenreName
 
 	db.execute("INSERT INTO genres(name) VALUES('#{newGenreName}')")
 
@@ -47,7 +52,7 @@ elsif fuckersInput == "3"
 	puts 'Enter a new album name motherfucker:___'
 
 	newAlbumName = gets.chomp
-	puts "newAlbumName is " + newAlbumName
+	#puts "newAlbumName is " + newAlbumName
 
 	db.execute("INSERT INTO albums(name) VALUES('#{newAlbumName}')")
 
@@ -60,7 +65,7 @@ elsif fuckersInput == "4"
 	puts 'Enter a new artist name motherfucker:___'
 
 	newArtistName = gets.chomp
-	puts "newArtistName is " + newArtistName
+	#puts "newArtistName is " + newArtistName
 
 	db.execute("INSERT INTO artists(name) VALUES('#{newArtistName}')")
 
@@ -106,9 +111,6 @@ else
 	puts "Go fuck yourself"
 end
 
-
-
-
-db.close
+db.close #close the shit
 
 
