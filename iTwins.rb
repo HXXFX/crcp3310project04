@@ -19,18 +19,6 @@ print_welcome
 fuckersInput = gets.chomp
 
 if fuckersInput == "1"
-	#puts fuckersInput + "!!!!"
-	# db.execute("SELECT songs.name, albums.name, artists.name, genres.name 
-	# 			FROM songs, albums, artists, genres
-	# 			WHERE songs.genre_id = genres.id AND songs.album_id = albums.id,") do |row|
-	# 		puts row
-	# end
-
-	# db.execute("SELECT songs.name FROM songs") do |row|
-	# 	puts row
-	# end
-
-
 	db.execute("SELECT songs.name, artists.name, albums.name, genres.name 
 				FROM songs, artists, albums, genres
    				WHERE songs.genre_id = genres.id AND artists.id = albums.artist_id AND songs.album_id = albums.id;")do |row|
@@ -76,19 +64,47 @@ elsif fuckersInput == "4"
 
 	db.execute("INSERT INTO artists(name) VALUES('#{newArtistName}')")
 
+elsif fuckersInput == "5"
+	puts "Enter a new song name motherfucker:___"
+	newSongName = gets.chomp
+	puts "newSongName is " + newSongName
+
+
+	puts "Genres List:"
+	db.execute("SELECT * FROM genres;") do |row|
+	 	
+	 	puts row
+	end
+	puts "Select a genre:___(enter a fucking number plz)"
+	newSongGenre = gets.chomp
+	
+
+	puts "Albums List:"
+	db.execute("SELECT id, name FROM albums;") do |row|
+	 	
+	 	puts row
+	end
+	puts "Select a album:___(enter a fucking number plz)"
+	newSongAlbum = gets.chomp
+
+	# puts "Artists List:"
+	# db.execute("SELECT * FROM artists;") do |row|
+	 	
+	#  	puts row
+	# end
+	# puts "Select a artist:___(enter a fucking number plz)"
+	# newSongArtist = gets.chomp
+	
+
+	db.execute("INSERT INTO songs(name, genre_id, album_id) VALUES('#{newSongName}', '#{newSongGenre}', '#{newSongAlbum}')")
+	# db.execute("INSERT INTO albums(name, artist_id) VALUES( '#{newSongAlbum}', '#{newSongArtist}' )" )
+	# db.execute("INSERT INTO artists(name) VALUES( '#{newSongArtist}' )" )
+	# db.execute("INSERT INTO genres(name) VALUES( '#{newSongGenre}' )" )
+
+
 else
-	puts "go fuck yourself"
+	puts "Go fuck yourself"
 end
-
-
-
-
-
-
-
-
-
-
 
 
 
