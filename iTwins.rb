@@ -19,15 +19,29 @@ print_welcome
 fuckersInput = gets.chomp
 
 if fuckersInput == "1"
-	puts fuckersInput + "!!!!"
-end
+	#puts fuckersInput + "!!!!"
+	# db.execute("SELECT songs.name, albums.name, artists.name, genres.name 
+	# 			FROM songs, albums, artists, genres
+	# 			WHERE songs.genre_id = genres.id AND songs.album_id = albums.id,") do |row|
+	# 		puts row
+	# end
 
-if fuckersInput == "2"
+	# db.execute("SELECT songs.name FROM songs") do |row|
+	# 	puts row
+	# end
+
+
+	db.execute("SELECT songs.name, artists.name, albums.name, genres.name 
+				FROM songs, artists, albums, genres
+   				WHERE songs.genre_id = genres.id AND artists.id = albums.artist_id AND songs.album_id = albums.id;")do |row|
+			puts '💩', row
+	end
+
+elsif fuckersInput == "2"
+	puts "hahahahaha"
+
+else
 	puts "go fuck yourself"
-end
-
-if fuckersInput == "3"
-	puts "hahahaha"
 end
 
 
